@@ -1,0 +1,233 @@
+{% block body_block %}
+
+{% load static %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Stacked HTML CSS Template</title>
+<!--
+Stacked Template
+https://templatemo.com/tm-505-stacked
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="{% static 'Portfolio/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Portfolio/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Portfolio/css/templatemo-style.css' %}">
+
+        <script src="{% static 'Portfolio/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="nav">
+          <div class="burger">
+            <div class="burger__patty"></div>
+          </div>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#1" class="nav__link c-blue"><img src="{% static 'Portfolio/img/home-icon.png' %}" alt=""></a>
+            </li>
+            <li class="nav__item">
+              <a href="#2" class="nav__link c-yellow scrolly"><img src="{% static 'Portfolio/img/about-icon.png' %}" alt=""></a>
+            </li>
+            <li class="nav__item">
+              <a href="#3" class="nav__link c-red"><img src="{% static 'Portfolio/img/projects-icon.png' %}" alt=""></a>
+            </li>
+            <li class="nav__item">
+              <a href="#4" class="nav__link c-green"><img src="{% static 'Portfolio/img/contact-icon.png' %}" alt=""></a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="panel b-blue" id="1">
+          <article class="panel__wrapper">
+            <div class="panel__content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="home-content">
+                      <div class="home-heading">
+                        <h1><em>Loevlie</em>DL</h1>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="home-box-content">
+                            <div class="left-text">
+                              <h4>Software / <em>Deep Learning</em> Engineer</h4>
+                              <p>My name is Dennis Loevlie so the DL in LoevlieDL can either be my initials or stand for the rapidly growing field of "Deep Learning". I am an innovative software engineer with a passion for Machine and Deep Learning.  I have a M.S. from Carnegie Mellon University where I took graduate level courses on both subjects and built multiple projects to hone my skills.  I am currently working for a AI startup, NovAItion, as the sole software/data engineer where I am gaining experience working hands on with front and back-end web development, web scraping, graph databases/theory, and recommender systems.</p>
+                              <div class="primary-button">
+                                <a href="#2">Discover More</a>
+                              </div>
+                            </div>
+                            <div class="right-image">
+                              <img src="{% static 'Portfolio/img/right-home-image2.png' %}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="panel b-yellow" id="2">
+          <article class="panel__wrapper">
+            <div class="panel__content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="about-content">
+                      <div class="heading">
+                        <h4>Skills</h4>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="about-box-content">
+                            <img src="{% static 'Portfolio/img/NN2.png' %}" alt="">
+                          </div>
+                        </div>
+                        <div class="col-md-7 col-md-offset-5">
+                          <div class="about-box-text">
+                            <h4>Skills/Applications</h4>
+                            <ol>
+                              
+                                <li><strong>Statsmodels with experience in applications:</strong> <ul>
+                                  <li>Time Series Analysis using Vectorized Auto-Regression (VAR)</li>
+                                </ul>
+                              </li>
+                              <li><strong>PyTorch with experience in applications:</strong><ul>
+                                <li><a style="color:Black" href="https://github.com/loevlie/Face_Verification">Frame Level Classification of Speech</a></li>
+                                <li><a style="color:Black" href="https://github.com/loevlie/Face_Verification">End to End Face Verification Systems</a></li>
+                                <li>Deep Learning Transcript Generation</li>
+                                <li><a style="color:Black" href="https://github.com/loevlie/DL_Project_PSMNet">SOTA Disparity Map Generation from 3D Stereo Images</a></li>
+                              </ul>
+                            </li>
+                            <li><strong>TensorFlow with experience in applications:</strong>
+                              <ul>
+                                <li><a style="color:Black" href="https://github.com/loevlie/ASL_Active_Learning">Image Classification in Real Time</a></li>
+                              </ul>
+                            </li>
+                            <li><strong>Skimage with experience in application(s):</strong><ul>
+                              <li><a style="color:Black" href="https://github.com/loevlie/MS_Research/blob/main/Image_Analysis/Mask_Creation.ipynb">Mask Creation</a></li>
+                              <li><a style="color:Black" href="https://github.com/loevlie/MS_Research/blob/main/Image_Analysis/Mask_And_Precip_Model.ipynb">Image Analysis</a></li>
+                            </ul></li>
+                            <li><strong>Django</strong> <ul>
+                              <li>Front/Back-end Web Development</li>
+                            </ul></li>
+                            <li><strong>Neo4J with experience in application(s):</strong> <ul>
+                              <li>Building Graph Databases</li>
+                              <li>Obtaining Valuable Insights from Graph Algorithms</li>
+                            </ul></li>
+                            
+                          </ol>
+
+                            <div class="primary-button">
+                              <a href="#3">Discover More</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="panel b-red" id="3">
+          <article class="panel__wrapper">
+            <div class="panel__content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="projects-content">
+                      <div class="heading">
+                        <h4>Projects</h4>
+                      </div>
+                      <div class="about-box-content">
+                        <img src="{% static 'Portfolio/img/ML.jpeg' %}" alt="">
+                        <div class="primary-button">
+                          <a href="https://github.com/loevlie">Discover More</a>
+                        </div>
+                      </div>
+                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
+                                  <div class="primary-button">
+                                    <a href="https://github.com/loevlie">Check out my GitHub</a>
+                                  </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="panel b-green" id="4">
+          <article class="panel__wrapper">
+            <div class="panel__content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="contact-content">
+                      <div class="heading">
+                        <h4>Contact Me</h4>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <div class="contat-form">
+                            {% load crispy_forms_tags %}
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <div class="form-actions">
+                                  <button type="submit">SEND MESSAGE</button>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="more-info">
+                            <p>Reach out to me through the form and/or any of the following methods:<br><br>
+                            <em>Email: loevliedenny@gmail.com
+								<br>Phone: 724-841-8769</em></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="footer">
+                      <p>Copyright &copy; 2021 LoevlieDL 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'Portfolio/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')</script>
+
+        <script src="{% static 'Portfolio/js/vendor/bootstrap.min.js' %}"></script>
+
+        <script src="{% static 'Portfolio/js/plugins.js' %}"></script>
+        <script src="{% static 'Portfolio/js/main.js' %}"></script>
+
+    </body>
+</html>
+{% endblock %}
