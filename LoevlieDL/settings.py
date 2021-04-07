@@ -25,9 +25,9 @@ STATIC_ROOT = os.path.join(STATIC_DIR,'Portfolio')
 SECRET_KEY = '#%na3^xi_idc+e43kz2bpgb*gllga_ethlyd8h2a*^-t#+kep+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

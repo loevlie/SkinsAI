@@ -489,6 +489,9 @@ ul {
   -webkit-transition: all 0.2s linear;
 }
 
+.projects-content .primary-button2 a {
+  margin-top: 80%;
+}
 
 
 
@@ -689,6 +692,9 @@ ul {
   }
   .projects-content .text-content {
     display: none;
+  }
+  .projects-content .primary-button2 a {
+    margin-top: -5%;
   }
   .contact-content .more-info {
     padding: 30px;
