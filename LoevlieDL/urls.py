@@ -26,6 +26,8 @@ urlpatterns = [
     re_path(r'^$',views.index,name='index'),
     re_path(r'^timeline/$',views.timeline,name='timeline'),
     re_path(r'^portfolio/$',views.portfolio,name='portfolio'),
-    re_path(r'^blog/$',views.blog,name='blog'),
+    #re_path(r'^Blog/$',views.blog,name='Blog'),
+    re_path(r'^Blog/$', views.blog.as_view(), name='Blog'),
+    path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('', include('Portfolio.urls')), # new
 ]

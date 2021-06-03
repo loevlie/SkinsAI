@@ -23,15 +23,31 @@
   <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
   <script type="text/javascript" src="/static/Portfolio/js/jquery.particleground.js"></script>
   <script type="text/javascript" src="/static/Portfolio/js/demo.js"></script>
+
+  <style>
+* { color:#fff; text-decoration: none;}
+  </style>
+
 </head>
 
 <body>
 
 <div id="particles">
   <div id="intro">
-      <h2 style="font-family: 'Syncopate', sans-serif; font-weight: 10;">Dennis Loevlie Ph.D. Student&nbsp<a href="{% static 'Portfolio/PDF/CV_CMU_FALL_2020.pdf' %}" style="color: white;"><img src="{% static 'Portfolio/img/open-resume.png' %}" height="35" width="35"></a></h2>
+    <div class="typewriter">
+      <h2>Hi, I'm Dennis Loevlie</h2>
+      <h2 style="color: white;">
+        <a href="" class="typewrite" data-period="2000" data-type='["I am a Ph.D. Student.", "I am passionate about Machine/Deep Learning.", "I Love to Develop." ]'>
+          <span class="wrap"></span>
+        </a>
+  
+      </h2>
+
         <hr style="width: 50%; background-color: #E83951; border-color: #E83951;">
-    <a href="https://www.linkedin.com/in/dennisloevlie/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
+    
+        <a href="{% static 'Portfolio/PDF/CV_CMU_FALL_2020.pdf' %}" style="color: white;"><i class="fa fa-file" aria-hidden="true" style="font-size: 2em;"></i></a>
+        &nbsp
+        <a href="https://www.linkedin.com/in/dennisloevlie/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
     &nbsp
     <a href="https://www.facebook.com/denny.loevlie/" style="color: white;"><i class="fab fa-facebook" style="font-size: 2em;"></i></a>
     &nbsp
@@ -39,13 +55,73 @@
     &nbsp
     <a href="https://medium.com/@#/" style="color: white;"><i class="fab fa-medium" style="font-size: 2em;"></i></a>
   </div>
+  </div>
 </div>
-<h1>HELLO IS THIS WORKING?</h1>
+
 
 </body>
 </html>
 
 
+<script>
+  var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
 
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        var delta = 200 - Math.random() * 1000;
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        var delta = 200 - Math.random() * 100;
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #FFFFFF}";
+        document.body.appendChild(css);
+    };
+</script>
 
 {% endblock %}
