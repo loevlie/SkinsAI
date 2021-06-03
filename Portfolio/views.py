@@ -23,3 +23,14 @@ def index(request):
             return redirect('Portfolio:success')
     return render(request, 'Portfolio/index.html', {'form': form})
     # return render(request,'Portfolio/index.html')
+
+def timeline(request):
+    return render(request, 'Portfolio/timeline.html')
+
+
+def portfolio(request):
+    return render(request, 'Portfolio/portfolio.html')
+
+
+def blog(request):
+    return render(request, 'Portfolio/blog.html')

@@ -24,5 +24,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$',views.index,name='index'),
+    re_path(r'^timeline/$',views.timeline,name='timeline'),
+    re_path(r'^portfolio/$',views.portfolio,name='portfolio'),
+    re_path(r'^blog/$',views.blog,name='blog'),
     path('', include('Portfolio.urls')), # new
 ]
