@@ -42,6 +42,10 @@
     padding-top: 1px;
 }
 </style>
+{% if user.is_superuser %}
+<li><a href="{% url 'add_post' %}">Admin</a></li>
+{% else %}
+{% endif %}
 
 <header class="masthead">
     <div class="overlay">

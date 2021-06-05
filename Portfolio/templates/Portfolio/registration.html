@@ -1,0 +1,47 @@
+{% extends "Portfolio/layout.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<br>
+<br>
+  <div class="container">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        {% if privacy_policy %}
+          <h1>Sign Up</h1>
+            <h3>It's quick and easy.</h3>
+            <br>
+            <div class="form-group">
+              <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ user_form|crispy }}
+                {{ profile_form|crispy }}
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </div>
+        {% else %}
+          <h1>Sign Up</h1>
+          <h3>It's quick and easy.</h3>
+          <h3>Please read/accept the privacy policy</h3>
+          <br>
+          <div class="form-group">
+            <form enctype="multipart/form-data" method="POST">
+              {% csrf_token %}
+              {{ user_form|crispy }}
+              {{ profile_form|crispy }}
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+          </div>
+        {% endif %}
+      {% endif %}
+
+    </div>
+
+  </div>
+
+
+{%endblock%}

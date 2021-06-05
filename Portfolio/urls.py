@@ -8,6 +8,8 @@ urlpatterns = [
     path('success/',views.successView,name='success'),
     path('', views.PostList.as_view(), name='home'),
     #path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path('add_post/',views.AddPostView.as_view(),name='add_post'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
+    re_path(r'^user_login/$',views.user_login,name='user_login'),
     #re_path(r'^Blog/$', views.blog, name='Blog'),
 ]

@@ -80,3 +80,7 @@ class blog(generic.ListView):
 
 
 
+class AddPostView(generic.CreateView):
+    model = Post
+    template_name = 'Portfolio/add_post.html'
+    fields = '__all__'
