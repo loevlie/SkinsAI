@@ -1,7 +1,7 @@
 {% extends "Portfolio/layout.html" %}
 
 {% load static %}
-
+{% load crispy_forms_tags %}
 <head>
     <title>Loevlie Blog</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -43,8 +43,20 @@
 }
 </style>
 
+<div class="container">
+    <div class="row">
+      <div class="top">
+        <div class="card-body">
+<h1>Add Post...</h1>
 
-<h1>Add Blog Post</h1>
-
-
+<form method="POST">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
+</div>
+</div>
+</div>
+</div>
 {%endblock%}
