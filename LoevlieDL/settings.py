@@ -43,9 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'markdownx',
     'ckeditor',
 ]
+
+SITE_ID = 1
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# ADDING Email for password reset functionality 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'loevliedenny@gmail.com'
+EMAIL_HOST_PASSWORD = 'zzuglbxtxvdyqrwi'
+DEFAULT_FROM_EMAIL = 'loevliedenny@gmail.com'
+#ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,4 +149,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
 
-# LOGIN_URL = '/Basic_app/user_login'
+LOGIN_URL = '/Portfolio/user_login'

@@ -1,20 +1,18 @@
 from django.core.mail import send_mail, BadHeaderError
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactForm, CommentForm
+from .forms import ContactForm, CommentForm, UserForm
 from django.views import generic
 from .models import Post
-
-
+from django.contrib.auth import authenticate,login,logout
+from django.urls import reverse
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 3
 
-# class PostDetail(generic.DetailView):
-#     model = Post
-#     template_name = 'post_detail.html'
 
 def post_detail(request, slug):
     template_name = 'Portfolio/post_detail.html'
@@ -78,7 +76,56 @@ class blog(generic.ListView):
     #return render(request, 'Portfolio/blog.html')
 
 
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username,password=password) # Authenticating the user for us
+        if user:
+            if user.is_active:
+                login(request,user)
+                return HttpResponseRedirect(reverse('Blog'))
+            else:
+                HttpResponse('ACCOUNT NOT ACTIVE')
+        else:
+            return HttpResponse("Invalide Login")
+    else:
+        return render(request,'Portfolio/login.html',{})
 
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('Blog'))
+
+
+
+
+
+def register(request):
+
+    registered = False
+
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        if user_form.is_valid():
+            user = user_form.save() # Saving directly to the DATABASE
+            user.set_password(user.password) # Hashing the password
+            user.save()
+
+            # Set One to One relationship between
+
+            # UserForm and UserProfileInfoForm
+            # Can't commit yet because we still need to manipulate
+            
+            registered = True
+            login(request,user)
+    else:
+        user_form = UserForm()
+        privacy_policy=True
+    return render(request,'Portfolio/registration.html',
+                          {'user_form':user_form,
+                           'registered':registered,})
 
 class AddPostView(generic.CreateView):
     model = Post
