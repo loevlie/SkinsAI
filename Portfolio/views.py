@@ -2,7 +2,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactForm, CommentForm, UserForm
+from .forms import ContactForm, CommentForm, UserForm,BlogPostForm
 from django.views import generic
 from .models import Post
 from django.contrib.auth import authenticate,login,logout
@@ -131,3 +131,4 @@ class AddPostView(generic.CreateView):
     model = Post
     template_name = 'Portfolio/add_post.html'
     fields = '__all__'
+    
