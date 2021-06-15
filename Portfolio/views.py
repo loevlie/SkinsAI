@@ -7,6 +7,7 @@ from django.views import generic
 from .models import Post
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -127,8 +128,22 @@ def register(request):
                           {'user_form':user_form,
                            'registered':registered,})
 
-class AddPostView(generic.CreateView):
-    model = Post
-    template_name = 'Portfolio/add_post.html'
-    fields = '__all__'
-    
+
+def AddPostView(request):
+    if request.method == 'POST':
+        print(request.user.username)
+        user_profile = User.objects.get(username=request.user.username)
+        print('Still working')
+        #model = Post.objects.get(author=user.request.user)
+        post_form = BlogPostForm(data=request.POST)
+        if post_form.is_valid():
+            form = post_form.save(commit=False)
+            print(user_profile)
+            form.author = user_profile
+            form = form.save()
+        else:
+            print(post_form.errors)
+    else:
+        form = BlogPostForm(instance=request.user)
+    return render(request,'Portfolio/add_post.html',{'form':form})
+
