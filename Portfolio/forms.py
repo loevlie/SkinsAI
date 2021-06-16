@@ -33,5 +33,21 @@ class CommentForm(forms.ModelForm):
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'slug', 'content','status')
+        fields = ('title', 'slug','snippet', 'content','status')
 
+class UpdateBlogPostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'slug','snippet', 'content','status')
+    
+    def save(self,commit=True):
+        blog_post = self.instance
+        blog_post.title = self.cleaned_data['title']
+        blog_post.slug = self.cleaned_data['slug']
+        blog_post.snippet = self.cleaned_data['snippet']
+        blog_post.content = self.cleaned_data['content']
+        blog_post.status = self.cleaned_data['status']
+    
+        if commit:
+            blog_post.save()
+        return blog_post

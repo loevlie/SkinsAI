@@ -2,7 +2,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactForm, CommentForm, UserForm,BlogPostForm
+from .forms import ContactForm, CommentForm, UserForm,BlogPostForm,UpdateBlogPostForm
 from django.views import generic
 from .models import Post
 from django.contrib.auth import authenticate,login,logout
@@ -39,7 +39,6 @@ def post_detail(request, slug):
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
-
         
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')
@@ -68,6 +67,32 @@ def timeline(request):
 
 def portfolio(request):
     return render(request, 'Portfolio/portfolio.html')
+
+
+# class UpdatePostView(generic.UpdateView):
+#     model = Post
+#     template_name = 'Portfolio/update_post.html'
+#     fields = ['title', 'slug','snippet', 'content','status']
+
+def UpdatePostView(request,slug):
+    blog_post = get_object_or_404(Post,slug=slug)
+    if request.method == 'POST':
+        user_profile = User.objects.get(username=request.user.username)
+        post_form = UpdateBlogPostForm(request.POST or None, request.FILES or None, instance=blog_post)
+        if post_form.is_valid():
+            form = post_form.save(commit=False)
+            form.author = user_profile
+            form = form.save()
+            return render(request,'Portfolio/update_post.html')
+        else:
+            print(post_form.errors)
+    else:
+        if str(request.user.username) == str(blog_post.author):
+            form = UpdateBlogPostForm(instance=request.user,initial = {"title":blog_post.title,"slug":blog_post.slug,"snippet":blog_post.snippet,"content":blog_post.content,"status":blog_post.status})
+            return render(request,'Portfolio/update_post.html',{'form':form})
+        else:
+            return HttpResponse("<h1>Only the user who created the post may edit it</h1>")
+
 
 
 class blog(generic.ListView):
@@ -131,14 +156,11 @@ def register(request):
 
 def AddPostView(request):
     if request.method == 'POST':
-        print(request.user.username)
         user_profile = User.objects.get(username=request.user.username)
-        print('Still working')
         #model = Post.objects.get(author=user.request.user)
         post_form = BlogPostForm(data=request.POST)
         if post_form.is_valid():
             form = post_form.save(commit=False)
-            print(user_profile)
             form.author = user_profile
             form = form.save()
         else:
