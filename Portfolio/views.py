@@ -83,7 +83,7 @@ def UpdatePostView(request,slug):
             form = post_form.save(commit=False)
             form.author = user_profile
             form = form.save()
-            return render(request,'Portfolio/update_post.html')
+            return render(request,'Portfolio/posted.html',{'action':'updating'})
         else:
             print(post_form.errors)
     else:
@@ -163,9 +163,29 @@ def AddPostView(request):
             form = post_form.save(commit=False)
             form.author = user_profile
             form = form.save()
+            return render(request,'Portfolio/posted.html',{'action':'making'})
         else:
             print(post_form.errors)
     else:
         form = BlogPostForm(instance=request.user)
     return render(request,'Portfolio/add_post.html',{'form':form})
 
+
+def about_me(request):
+    return render(request, 'Portfolio/about_me.html')
+
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message'] + '  Email: ' + from_email
+            try:
+                send_mail(subject, message, from_email, ['loevliedenny@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return render(request, 'Portfolio/message_sent.html')
+    return render(request, 'Portfolio/contact.html', {'form': form})
