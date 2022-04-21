@@ -14,7 +14,7 @@
     <title>Portfolio Website</title>
   </head>
   <body>
-      
+
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8899A6;">
         <a class="navbar-brand" href="{% url 'index' %}">LoevlieDL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
               <a class="nav-link" target="_self" href="{% url 'timeline' %}">Timeline</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_self" href="{% url 'Blog' %}">Blog</a>
+              <a class="nav-link" target="_self" href="https://medium.com/@dennyloevlie">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" target="_self" href="{% url 'about_me' %}">About me</a>
@@ -42,19 +42,17 @@
             </li>
 
 
-              <form>
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </form>
+
 
           </ul>
         </div>
       </nav>
 
-      
+
         {% block main %}
-        
+
         {% endblock %}
-      
+
 
 
       <footer class="small text-center text-muted">

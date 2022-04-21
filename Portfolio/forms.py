@@ -26,20 +26,20 @@ class ContactForm(forms.Form):
 
 class CommentForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ('title', 'slug', 'content')
+        model = Comment
+        fields = ('name', 'email','body')
 
 
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'slug','snippet', 'content','status')
+        fields = ('title', 'slug','snippet', 'content','status','header_image')
 
 class UpdateBlogPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'slug','snippet', 'content','status')
-    
+        fields = ('title', 'slug','snippet', 'content','status','header_image')
+
     def save(self,commit=True):
         blog_post = self.instance
         blog_post.title = self.cleaned_data['title']
@@ -47,7 +47,7 @@ class UpdateBlogPostForm(forms.ModelForm):
         blog_post.snippet = self.cleaned_data['snippet']
         blog_post.content = self.cleaned_data['content']
         blog_post.status = self.cleaned_data['status']
-    
+        blog_post.header_image = self.cleaned_data['header_image']
         if commit:
             blog_post.save()
         return blog_post

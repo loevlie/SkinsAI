@@ -26,26 +26,27 @@
 
   <style>
 * { color:#fff; text-decoration: none;}
+body {overflow-y:auto !important;}
   </style>
 
 </head>
 
 <body>
 
-<div id="particles">
+<div id="particles" style="position: relative;">
   <div id="intro">
     <div class="typewriter">
       <h2>Hi, I'm Dennis Loevlie</h2>
       <h2 style="color: white;">
-        <a href="" class="typewrite" data-period="2000" data-type='["I am a Ph.D. Student.", "I am passionate about Machine/Deep Learning.", "I Love to Develop." ]'>
+        <a href="" class="typewrite" data-period="2000" data-type='["I am passionate about Machine Learning.", "I Love to Develop."]'>
           <span class="wrap"></span>
         </a>
-  
+
       </h2>
 
         <hr style="width: 50%; background-color: #E83951; border-color: #E83951;">
-    
-        <a href="{% static 'Portfolio/PDF/CV_CMU_FALL_2020.pdf' %}" style="color: white;"><i class="fa fa-file" aria-hidden="true" style="font-size: 2em;"></i></a>
+
+        <a href="{% static 'Portfolio/PDF/CV_Feb_23_2022.pdf' %}" style="color: white;"><i class="fa fa-file" aria-hidden="true" style="font-size: 2em;"></i></a>
         &nbsp
         <a href="https://www.linkedin.com/in/dennisloevlie/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
     &nbsp
@@ -89,7 +90,7 @@
         this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
         var that = this;
-        
+
 
         if (this.isDeleting) { delta /= 2; }
 

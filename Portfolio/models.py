@@ -15,6 +15,7 @@ class Post(models.Model):
     snippet = models.CharField(max_length=300, default="Default snippet text")
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now=True)
+    header_image = models.ImageField(null=True,blank=True,upload_to = "images/")
     #content = models.TextField()
     content = RichTextField(blank=True,null=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -28,11 +29,11 @@ class Post(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse('post_detail', kwargs={"pk": self.pk})
-    
+
 
     def get_absolute_url(self):
         return reverse('post_detail', args=(str(self.id)))
-    
+
 
 
 class Comment(models.Model):

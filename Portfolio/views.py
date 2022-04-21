@@ -20,6 +20,7 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(active=True)
     new_comment = None
+
     # Comment posted
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
@@ -39,7 +40,7 @@ def post_detail(request, slug):
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
-        
+
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')
 
@@ -143,7 +144,7 @@ def register(request):
 
             # UserForm and UserProfileInfoForm
             # Can't commit yet because we still need to manipulate
-            
+
             registered = True
             login(request,user)
     else:
@@ -165,7 +166,7 @@ def AddPostView(request):
             form = form.save()
             return render(request,'Portfolio/posted.html',{'action':'making'})
         else:
-            print(post_form.errors)
+            return HttpResponse('Something did not work the slug may already exist!')
     else:
         form = BlogPostForm(instance=request.user)
     return render(request,'Portfolio/add_post.html',{'form':form})

@@ -60,4 +60,4 @@ urlpatterns = [
          name='password_reset_complete'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('edit/<slug:slug>/', views.UpdatePostView, name='update_post'),
-] + static(settings.STATIC_URL,document_root=settings.STATIC_DIR) 
+] + static(settings.STATIC_URL,document_root=settings.STATIC_DIR) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,20 @@
+.container
+{
+    min-height: 500px;
+}
+
+.col-auto
+{
+    position: absolute;
+    top: 50%;
+}
+
+.navbar-brand
+{
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  

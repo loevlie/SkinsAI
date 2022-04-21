@@ -13,11 +13,11 @@
 
 {% block main %}
 <style>
-    
+
     .head_text {
         color: white;
     }
-    
+
     .card {
         box-shadow: 0 16px 48px #E3E7EB;
     }
@@ -49,7 +49,7 @@
         <div class="card-body">
 <h1>Add Post...</h1>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.media }}
     {{ form|crispy }}
