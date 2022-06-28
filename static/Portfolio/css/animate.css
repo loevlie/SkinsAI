@@ -13,7 +13,7 @@ h1 {text-align: center}
 .d05{ animation-delay:0.5s; -moz-animation-delay:0.5s; -webkit-animation-delay:0.5s; }
 .d06{ animation-delay:0.6s; -moz-animation-delay:0.6s; -webkit-animation-delay:0.6s; }
 .d07{ animation-delay:0.7s; -moz-animation-delay:0.7s; -webkit-animation-delay:0.7s; }
-.d08{ animation-delay:0.8s; -moz-animation-delay:0.8s; -webkit-animation-delay:0.8s; }	
+.d08{ animation-delay:0.8s; -moz-animation-delay:0.8s; -webkit-animation-delay:0.8s; }
 .d09{ animation-delay:0.9s; -moz-animation-delay:0.9s; -webkit-animation-delay:0.9s; }
 .d10{ animation-delay:1s; -moz-animation-delay:1s; -webkit-animation-delay:1s; }
 .d11{ animation-delay:1.1s; -moz-animation-delay:1.1s; -webkit-animation-delay:1.1s; }
@@ -1739,13 +1739,13 @@ h1 {text-align: center}
 #timeline .timeline-movement .timeline-item .timeline-panel.credits  .timeline-panel-ul .lefting-wrap {
 	float: right;
 	width: 30%;
-	height: 130px;
+	height: 100%;
 	background-color: floralwhite;
 }
 #timeline .timeline-movement .timeline-item .timeline-panel.credits  .timeline-panel-ul .righting-wrap {
 	float: left;
 	width: 70%;
-	height: 130px;
+	height: 100%;
 	padding: 0 12px 0 0;
 	display: flex;
 	flex-direction: column;
@@ -1761,13 +1761,13 @@ h1 {text-align: center}
 #timeline .timeline-movement .timeline-item .timeline-panel.debits  .timeline-panel-ul .lefting-wrap {
 	float: left;
 	width: 30%;
-	height: 130px;
+	height: 100%;
 	background-color: floralwhite;
 }
 #timeline .timeline-movement .timeline-item .timeline-panel.debits  .timeline-panel-ul .righting-wrap {
 	float: right;
 	width: 70%;
-	height: 130px;
+	height: 100%;
 	padding: 0 0 0 12px;
 	display: flex;
 	flex-direction: column;
@@ -1775,10 +1775,13 @@ h1 {text-align: center}
 }
 #timeline .timeline-movement .timeline-item .timeline-panel.debits .timeline-panel-ul li.img-wraping {
 	width: 100%;
+	height: 100%;
+	text-align:center;
 }
 #timeline .timeline-movement .timeline-item .timeline-panel.debits .timeline-panel-ul li.img-wraping a img, #timeline .timeline-movement .timeline-item .timeline-panel.credits .timeline-panel-ul li.img-wraping a img {
     width: 100%;
-    height: 130px;
+    height: 150px;
+    text-align:center;
 }
 #timeline .timeline-movement .timeline-item .timeline-panel.debits .timeline-panel-ul li {
 	color: #666;
