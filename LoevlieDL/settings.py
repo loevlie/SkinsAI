@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'ckeditor',
+    'captcha',
 ]
 
 SITE_ID = 1
@@ -118,6 +119,9 @@ DATABASES = {
         'HOST': 'dloevlie.mysql.pythonanywhere-services.com',
     }
 }
+
+RECAPTCHA_PUBLIC_KEY = '6LeqUOwgAAAAAAwFFTl1xe1NzWeWBl7ao1d_R35u'
+RECAPTCHA_PRIVATE_KEY = '6LeqUOwgAAAAANpBHk4QejGSDP-AdAaGZNOC-ADu'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
