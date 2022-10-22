@@ -17,4 +17,5 @@ django-on-heroku==1.1.2
 Markdown==3.3.7
 openpyxl==3.0.9
 Pillow==9.1.0
-torch==1.11.0+cpu
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.2.0+cpu
