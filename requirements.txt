@@ -19,3 +19,4 @@ openpyxl==3.0.9
 Pillow==9.1.0
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.12.1+cpu
+pymysql==1.0.2
