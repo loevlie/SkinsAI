@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = str(Path(__file__).resolve().parent.parent)
 TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
@@ -28,7 +29,7 @@ SECRET_KEY = '#%na3^xi_idc+e43kz2bpgb*gllga_ethlyd8h2a*^-t#+kep+'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com']
-ALLOWED_HOSTS = ["127.0.0.1",'SkinsAI.pythonanywhere.com']#,'loevliedl.com','www.loevliedl.com']
+ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1",'SkinsAI.pythonanywhere.com']#,'loevliedl.com','www.loevliedl.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -175,3 +176,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 STATICFILES_DIRS = [STATIC_DIR,]
 
 LOGIN_URL = '/Portfolio/user_login'
+django_heroku.settings(locals())
