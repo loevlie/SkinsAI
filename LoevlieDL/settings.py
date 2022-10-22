@@ -29,7 +29,7 @@ SECRET_KEY = '#%na3^xi_idc+e43kz2bpgb*gllga_ethlyd8h2a*^-t#+kep+'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com']
-ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1",'SkinsAI.pythonanywhere.com']#,'loevliedl.com','www.loevliedl.com']
+ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1",'skinsai.herokuapp.com']#,'loevliedl.com','www.loevliedl.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
