@@ -30,6 +30,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com']
 ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1",'skinsai.herokuapp.com']#,'loevliedl.com','www.loevliedl.com']
+CSRF_TRUSTED_ORIGINS = ['https://skinsai.herokuapp.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
