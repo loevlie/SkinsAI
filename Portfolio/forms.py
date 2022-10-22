@@ -20,8 +20,8 @@ class UserForm(forms.ModelForm):
 
 ## Image section
 class GeeksForm(forms.Form):
-    name = forms.CharField(required=True)
-    geeks_field = forms.ImageField(required=True)
+    # name = forms.CharField(required=True)
+    skin_image = forms.ImageField(required=True)
 
 class ContactForm(forms.Form):
     subject = forms.CharField(required=True,widget=forms.TextInput(attrs={'placeholder':'Your Name'}),label="")

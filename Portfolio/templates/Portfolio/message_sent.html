@@ -1,15 +1,43 @@
-{% extends "Portfolio/layout.html" %}
+
 
 {% load static %}
-{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+
 
 {% block main %}
+
+<head>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static '/static/Portfolio/css/style2.css' %}">
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+  <link href="/static/Portfolio/css/styles2.css" rel="stylesheet" />
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <div class="container px-5">
+      <a class="navbar-brand" href="{% url 'index' %}">SkinsAI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+              {% comment %} <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li> {% endcomment %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'Upload_Your_Image' %}">Submit Your Image for Testing</a></li>
+              {% comment %} <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li> {% endcomment %}
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<br>
+<br>
 <br>
 <br>
   <div class="container">
     <div class="jumbotron">
-     <h1> {{ prediction }} </h1
-        {% comment %} <h1>Thank you for reaching out!</h1> {% endcomment %}
+      <h1 class="center"> It looks like it is Beneign. </h1>
+      <h4>Please look through the provided information and decide if further evaluation by a doctor would be helpful.</h4>
+
     </div>
 
   </div>

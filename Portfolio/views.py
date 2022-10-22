@@ -39,7 +39,7 @@ def Upload_Your_Image(request):
     if request.method == 'POST':
         form = GeeksForm(request.POST, request.FILES)
         if form.is_valid():
-            user_im = form.cleaned_data['geeks_field']
+            user_im = form.cleaned_data['skin_image']
             img = read(user_im)
             img = img.reshape(1, 28, 28, 3)
             x = Tensor(img)
@@ -91,18 +91,16 @@ def Upload_Your_Image(request):
                 # plt.imshow(np.array(test_preds[0][0], dtype='uint8').reshape(28,28,3))
                 print(np.argmax(m(test_pred)))
                 prediction = np.argmax(m(test_pred))
+                context['prediction'] = prediction
                 if int(prediction) == 0:
                     prediction = 'beneign'
+                    return render( request, "Portfolio/message_sent.html", context)
                 else:
                     prediction = 'malignant'
-                context['prediction'] = prediction
-
+                    return render( request, "Portfolio/about_me.html", context)
                 
-                # print(m(test_pred))
 
-            # print(user_im)
-            #question_answer = form.cleaned_data['question_1']
-            return render( request, "Portfolio/message_sent.html", context)
+            
     else:
         form = GeeksForm()
         return render(request, "Portfolio/Upload_Your_Image.html", context)
