@@ -11,8 +11,6 @@ from django.contrib.auth.models import User
 from .forms import GeeksForm
 from torch import Tensor
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.preprocessing import StandardScaler
 import torch
 import torch.nn as nn
 import os
