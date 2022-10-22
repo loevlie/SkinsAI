@@ -1,14 +1,15 @@
 {% extends "Portfolio/layout.html" %}
 
 {% load static %}
-{% load crispy_forms_tags %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block main %}
 <br>
 <br>
   <div class="container">
     <div class="jumbotron">
-        <h1>Thank you for reaching out!</h1>
+     <h1> {{ prediction }} </h1
+        {% comment %} <h1>Thank you for reaching out!</h1> {% endcomment %}
     </div>
 
   </div>

@@ -9,7 +9,24 @@ from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import GeeksForm
+from torch import Tensor
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.preprocessing import StandardScaler
+import torch
+import torch.nn as nn
+import os
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import os
+from glob import glob
+#import seaborn as sns
+from PIL import Image
+
+read = lambda imname: np.asarray(Image.open(imname).convert("RGB").resize((28, 28), Image.ANTIALIAS))
+device = 'cpu'
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -19,7 +36,79 @@ class PostList(generic.ListView):
 def Upload_Your_Image(request):
     context = {}
     context['form'] = GeeksForm()
-    return render( request, "Portfolio/Upload_Your_Image.html", context)
+    if request.method == 'POST':
+        form = GeeksForm(request.POST, request.FILES)
+        if form.is_valid():
+            user_im = form.cleaned_data['geeks_field']
+            img = read(user_im)
+            img = img.reshape(1, 28, 28, 3)
+            x = Tensor(img)
+            class Net(nn.Module):   
+                def __init__(self):
+                    super(Net, self).__init__()
+
+                    self.cnn_layers = nn.Sequential(
+                        # Defining a 2D convolution layer
+                        nn.Conv2d(3, 4, kernel_size=3, stride=1, padding=1),
+                        nn.BatchNorm2d(4),
+                        nn.ReLU(inplace=True),
+                        nn.MaxPool2d(kernel_size=2, stride=2),
+                        # Defining another 2D convolution layer
+                        nn.Conv2d(4, 4, kernel_size=3, stride=1, padding=1),
+                        nn.BatchNorm2d(4),
+                        nn.ReLU(inplace=True),
+                        nn.MaxPool2d(kernel_size=2, stride=2),
+                    )
+
+                    self.linear_layers = nn.Sequential(
+                        nn.Linear(4 * 7 * 7, 2)
+                    )
+
+                # Defining the forward pass    
+                def forward(self, x):
+                    x = self.cnn_layers(x)
+                    x = x.view(x.size(0), -1)
+                    x = self.linear_layers(x)
+                    return x
+                
+            model = Net()
+            model.to(device)
+            # print current directory
+            #print(os.getcwd())
+            model.load_state_dict(torch.load("Portfolio/skin_cancer_predictor.pt"))
+
+            model.eval()
+
+            m = nn.Softmax()
+
+            model.eval()
+            with torch.no_grad():
+                # test_preds = next(iter(test_loader))
+                test_pred = model(x.reshape(1,3,28,28))
+                # y = test_preds[1][0]
+                
+                
+                # plt.imshow(np.array(test_preds[0][0], dtype='uint8').reshape(28,28,3))
+                print(np.argmax(m(test_pred)))
+                prediction = np.argmax(m(test_pred))
+                if int(prediction) == 0:
+                    prediction = 'beneign'
+                else:
+                    prediction = 'malignant'
+                context['prediction'] = prediction
+
+                
+                # print(m(test_pred))
+
+            # print(user_im)
+            #question_answer = form.cleaned_data['question_1']
+            return render( request, "Portfolio/message_sent.html", context)
+    else:
+        form = GeeksForm()
+        return render(request, "Portfolio/Upload_Your_Image.html", context)
+            
+
+
 
 
 def post_detail(request, slug):
