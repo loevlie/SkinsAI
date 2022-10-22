@@ -85,11 +85,5 @@ sqlparse==0.4.2
 statsmodels==0.13.2
 sympy==1.10.1
 tenacity==8.0.1
-threadpoolctl==3.1.0
 torch==1.9.0
 torchvision==0.10.0
-umap-learn==0.5.3
-Werkzeug==2.1.2
-whitenoise==6.2.0
-widgetsnbextension==4.0.2
-xgboost==1.6.2
