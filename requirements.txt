@@ -1,6 +1,5 @@
 absl-py==1.1.0
 ansi2html==1.7.0
-ase==3.22.1
 asgiref==3.5.2
 attrs==21.4.0
 Brotli==1.0.9
@@ -16,8 +15,6 @@ django-js-asset==2.0.0
 django-markdownx==3.0.1
 django-on-heroku==1.1.2
 Markdown==3.3.7
-matplotlib==3.5.1
 openpyxl==3.0.9
-pandas==1.4.2
 Pillow==9.1.0
-torch==1.11.0
+torch==1.11.0+cpu
