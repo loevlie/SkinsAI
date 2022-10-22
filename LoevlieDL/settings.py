@@ -25,10 +25,10 @@ STATIC_ROOT = os.path.join(STATIC_DIR,'Portfolio')
 SECRET_KEY = '#%na3^xi_idc+e43kz2bpgb*gllga_ethlyd8h2a*^-t#+kep+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com']
-ALLOWED_HOSTS = ['dloevlie.pythonanywhere.com','loevliedl.com','www.loevliedl.com']
+ALLOWED_HOSTS = ["127.0.0.1",'SkinsAI.pythonanywhere.com']#,'loevliedl.com','www.loevliedl.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -110,13 +110,20 @@ DEFAULT_FROM_EMAIL = 'loevliedenny@gmail.com'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'dloevlie$Portfolio',
+#         'USER': 'dloevlie',
+#         'PASSWORD': 'Norge2021!!',
+#         'HOST': 'dloevlie.mysql.pythonanywhere-services.com',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dloevlie$Portfolio',
-        'USER': 'dloevlie',
-        'PASSWORD': 'Norge2021!!',
-        'HOST': 'dloevlie.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
     }
 }
 

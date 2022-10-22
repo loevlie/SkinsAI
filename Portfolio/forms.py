@@ -1,8 +1,8 @@
 from django import forms
 from .models import Comment, Post
 from django.contrib.auth.models import User
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
+# from captcha.fields import ReCaptchaField
+# from captcha.widgets import ReCaptchaV2Checkbox
 
 
 class UserForm(forms.ModelForm):
@@ -23,7 +23,7 @@ class ContactForm(forms.Form):
     subject = forms.CharField(required=True,widget=forms.TextInput(attrs={'placeholder':'Your Name'}),label="")
     from_email = forms.EmailField(required=True,widget=forms.TextInput(attrs={'placeholder':'Email'}),label="")
     message = forms.CharField(required=True,widget=forms.Textarea(attrs={'placeholder':'Message'}),label="")
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+   #  captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
 
 class CommentForm(forms.ModelForm):
