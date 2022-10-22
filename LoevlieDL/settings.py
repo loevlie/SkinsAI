@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+import django_on_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = str(Path(__file__).resolve().parent.parent)
 TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
@@ -176,4 +176,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 STATICFILES_DIRS = [STATIC_DIR,]
 
 LOGIN_URL = '/Portfolio/user_login'
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())
