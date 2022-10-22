@@ -8,11 +8,18 @@ from .models import Post
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .forms import GeeksForm
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 3
+
+## Image
+def Upload_Your_Image(request):
+    context = {}
+    context['form'] = GeeksForm()
+    return render( request, "Portfolio/Upload_Your_Image.html", context)
 
 
 def post_detail(request, slug):

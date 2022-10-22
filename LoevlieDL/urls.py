@@ -60,4 +60,5 @@ urlpatterns = [
          name='password_reset_complete'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('edit/<slug:slug>/', views.UpdatePostView, name='update_post'),
+    re_path(r'^Upload_Your_Image/$',views.Upload_Your_Image,name='Upload_Your_Image')
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_DIR) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

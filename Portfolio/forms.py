@@ -18,6 +18,10 @@ class UserForm(forms.ModelForm):
             'password': forms.TextInput(attrs={'class':'form-control'}),
         }
 
+## Image section
+class GeeksForm(forms.Form):
+    name = forms.CharField(required=True)
+    geeks_field = forms.ImageField(required=True)
 
 class ContactForm(forms.Form):
     subject = forms.CharField(required=True,widget=forms.TextInput(attrs={'placeholder':'Your Name'}),label="")
