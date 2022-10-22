@@ -1,2 +1,2 @@
-# LoevlieDL
-Django code for Dennis Loevlie's portfolio Website
+# SkinsAI
+Django code for the SkinsAI application website!
