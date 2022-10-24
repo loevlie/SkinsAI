@@ -16,7 +16,7 @@
 
 | Software      | Use Case    |
 | ------------- | ------------- |
-| Djagno  | Website development  |
-| PyTorch  | CNN training and deployment  |
+| Djagno  | Website Development  |
+| PyTorch  | CNN Training and Deployment  |
 | Heroku  | Website Deployment |
 | GitHub  | Version Control and Collaboration |
